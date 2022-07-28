@@ -1,1 +1,1 @@
-# Vanila_JS_study
+# Vanilla_JS_study
