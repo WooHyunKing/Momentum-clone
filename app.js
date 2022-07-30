@@ -1,29 +1,31 @@
-const calculator ={
+const age = parseInt(prompt("How old are you?"));
 
-    plus : function(a,b){
-        return a+b;
-    },
+if(isNaN(age)){
+    console.log("Please write a number");
+}else{
+    console.log("Thank you for writing your age.");
+}
 
-    minus : function(a,b){
-        return a-b;
-    },
+// const calculator ={
 
-    multiply : function(a,b){
-        return a*b;
-    },
+//     plus : function(a,b){
+//         return a+b;
+//     },
 
-    divide : function(a,b){
-        return a/b;
-    },
+//     minus : function(a,b){
+//         return a-b;
+//     },
 
-    power : function(a,b){
-        return a**b;
-    }
+//     multiply : function(a,b){
+//         return a*b;
+//     },
 
-};
+//     divide : function(a,b){
+//         return a/b;
+//     },
 
-const plusResult = calculator.plus(10,20);
-const minusResult = calculator.minus(plusResult,10);
-const multiResult = calculator.multiply(minusResult,5);
-const divideResult = calculator.divide(multiResult,5);
-const powerResult = calculator.power(divideResult,2);
+//     power : function(a,b){
+//         return a**b;
+//     }
+
+// };
