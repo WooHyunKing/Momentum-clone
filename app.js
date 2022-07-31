@@ -1,7 +1,19 @@
 const h1=document.querySelector("div.hello:first-child h1");
 
 function handleTitleClick(){
-    h1.style.color="blue"; //style은 대부분 CSS에서 처리
+    //h1.style.color="blue"; style은 대부분 CSS에서 처리
+
+    const currentColor=h1.style.color;
+    let newColor;
+
+    if(currentColor==="blue"){
+        newColor="tomato";
+    }
+    else{
+        newColor="blue";
+    }
+
+    h1.style.color=newColor;
 }
 
 function handleMouseEnter(){
