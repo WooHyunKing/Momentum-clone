@@ -1,13 +1,22 @@
-const h1=document.querySelector("div.hello:first-child h1");
+const loginForm=document.querySelector(".login-form");
+const loginInput=document.querySelector(".login-form input");
+const loginButton=document.querySelector(".login-form button");
 
-function handleTitleClick(){
-    const clickedClass="clicked";
-    if(h1.classList.contains(clickedClass)){
-        h1.classList.remove(clickedClass);
-    }
-    else{
-        h1.classList.add(clickedClass);
-    }
+const link = document.querySelector("a");
+
+function onLoginSubmit(event){
+    // const username=loginInput.value;
+    // console.log(username);
+    event.preventDefault();
+    console.log(info);
 }
 
-h1.addEventListener("click",handleTitleClick);
+function onLinkClick(event){
+    event.preventDefault();
+    
+    console.log(event);
+    alert("clicked");
+}
+
+loginForm.addEventListener("submit",onLoginSubmit);
+link.addEventListener("click",onLinkClick);
