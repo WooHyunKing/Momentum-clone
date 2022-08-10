@@ -4,10 +4,10 @@ const toDoList=document.getElementById("todo-list");
 
 const TODOS_KEY = "todos";
 
-const toDos=[];
+let toDos=[];
 
 function saveToDos(){ //toDos 배열을 로컬저장소에 저장
-    localStorage.setItem(TODOS_KEY,JSON.stringify(toDos)); //stringify는 자바스크립트의 객체나 배열 등 모든 코드를 문자열로 만듬
+    localStorage.setItem(TODOS_KEY,JSON.stringify(toDos)); //JSON.stringify는 자바스크립트의 객체나 배열 등 모든 코드를 문자열로 만듬
 }
 
 function deleteToDo(event){
@@ -49,8 +49,9 @@ function sayHello(item){
 const savedToDos =localStorage.getItem(TODOS_KEY);
 
 if(savedToDos !== null){
-    const parsedToDos=JSON.parse(savedToDos);
-    console.log(parsedToDos);
-    //parsedToDos.forEach(sayHello); forEach는 배열의 각 item에 대해 처리하는 반복문
-    parsedToDos.forEach((item)=>console.log("This is the turn of ",item)); //위 코드와 동일(Arrow function, 화살표 함수)
+    const parsedToDos=JSON.parse(savedToDos); //JSON.parse는 문자열을 자바스크립트에서 사용가능한 객체로 변환
+    toDos=parsedToDos;
+    parsedToDos.forEach(paintToDo);
+    //parsedToDos.forEach(sayHello); forEach는 배열의 각 item에 대해 하나의 함수를 처리하는 반복문
+    //parsedToDos.forEach((item)=>console.log("This is the turn of ",item)); //위 코드와 동일(Arrow function, 화살표 함수)
 }
