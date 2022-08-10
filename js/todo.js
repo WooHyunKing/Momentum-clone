@@ -12,13 +12,15 @@ function saveToDos(){ //toDos 배열을 로컬저장소에 저장
 
 function deleteToDo(event){
     const li = event.target.parentElement;
+    console.log(li.id);
     li.remove();
 }
 
-function paintToDo(newTodo){
+function paintToDo(newTodoObj){
     const li=document.createElement("li");
+    li.id=newTodoObj.id;
     const span=document.createElement("span");
-    span.innerText=newTodo;
+    span.innerText=newTodoObj.text;
 
     const button=document.createElement("button");
     button.innerText="X";
@@ -35,8 +37,12 @@ function onToDoSubmit(event){
     event.preventDefault();
     const newTodo = toDoInput.value; //입력값 저장
     toDoInput.value=""; //텍스트 초기화(지우기)
-    toDos.push(newTodo); //toDos 배열에 추가(push)
-    paintToDo(newTodo); //todo 출력
+    const newToDoObj ={
+        id:Date.now(),
+        text:newTodo,
+    };
+    toDos.push(newToDoObj); //toDos 배열에 추가(push)
+    paintToDo(newToDoObj); //todo 출력
     saveToDos(); //toDo 로컬저장소에 저장
 }
 
@@ -50,7 +56,7 @@ const savedToDos =localStorage.getItem(TODOS_KEY);
 
 if(savedToDos !== null){
     const parsedToDos=JSON.parse(savedToDos); //JSON.parse는 문자열을 자바스크립트에서 사용가능한 객체로 변환
-    toDos=parsedToDos;
+    toDos=parsedToDos; //이전에 저장한 toDo 불러오기
     parsedToDos.forEach(paintToDo);
     //parsedToDos.forEach(sayHello); forEach는 배열의 각 item에 대해 하나의 함수를 처리하는 반복문
     //parsedToDos.forEach((item)=>console.log("This is the turn of ",item)); //위 코드와 동일(Arrow function, 화살표 함수)
