@@ -12,8 +12,10 @@ function saveToDos(){ //toDos 배열을 로컬저장소에 저장
 
 function deleteToDo(event){
     const li = event.target.parentElement;
-    console.log(li.id);
     li.remove();
+    toDos=toDos.filter((toDo) => toDo.id !== parseInt(li.id) ); //새로운 array에 유지하고 싶다면 true 반환, 제외하고 싶으면 false 반환
+    saveToDos();
+    //filter function은 새 array를 반환
 }
 
 function paintToDo(newTodoObj){
