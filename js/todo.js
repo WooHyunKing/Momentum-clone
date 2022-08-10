@@ -2,10 +2,12 @@ const toDoForm=document.getElementById("todo-form");
 const toDoInput=toDoForm.querySelector("input");
 const toDoList=document.getElementById("todo-list");
 
+const TODOS_KEY = "todos";
+
 const toDos=[];
 
 function saveToDos(){ //toDos 배열을 로컬저장소에 저장
-    localStorage.setItem("todos",JSON.stringify(toDos)); //stringify는 자바스크립트의 객체나 배열 등 모든 코드를 문자열로 만듬
+    localStorage.setItem(TODOS_KEY,JSON.stringify(toDos)); //stringify는 자바스크립트의 객체나 배열 등 모든 코드를 문자열로 만듬
 }
 
 function deleteToDo(event){
@@ -39,3 +41,16 @@ function onToDoSubmit(event){
 }
 
 toDoForm.addEventListener("submit",onToDoSubmit);
+
+function sayHello(item){
+    console.log("This is the turn of",item);
+}
+
+const savedToDos =localStorage.getItem(TODOS_KEY);
+
+if(savedToDos !== null){
+    const parsedToDos=JSON.parse(savedToDos);
+    console.log(parsedToDos);
+    //parsedToDos.forEach(sayHello); forEach는 배열의 각 item에 대해 처리하는 반복문
+    parsedToDos.forEach((item)=>console.log("This is the turn of ",item)); //위 코드와 동일(Arrow function, 화살표 함수)
+}
