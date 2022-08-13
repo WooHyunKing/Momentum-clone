@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h2 id="clock">00:00:00</h2>
-    <form class="login-form hidden">
-        <input required maxlength="15" type="text" placeholder="What is your name?">
-        <input type="submit" value="Log in">
-    </form>
-    <h1 id="greeting" class="hidden">Hi</h1>
+    <div id="center">
+        <h2 id="clock">00:00:00</h2>
+        <span>Hello, what is your name?</span>
+        <form class="login-form hidden">
+            <input required maxlength="15" type="text">
+            <input type="submit" value="Log in">
+        </form>
+        <h1 id="greeting" class="hidden">Hi</h1>
+    </div>
+    
     <form id="todo-form">
         <input type="text" placeholder="Write a To Do and Press Enter" required>
     </form>
