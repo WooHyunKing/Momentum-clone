@@ -18,7 +18,19 @@ function onLoginSubmit(event){
 
 function paintGreetings(){
     const username=localStorage.getItem(USERNAME_KEY);
-    greeting.innerText=`Hello ${username}`;
+
+    const time = new Date();
+    const hour = time.getHours();
+    
+    if(hour>=5 && hour <=9){
+        greeting.innerText=`Good morning, ${username}`;
+    }
+    else if(hour>=10 && hour<=17){
+        greeting.innerText=`It's a good lunch, ${username}`;
+    }
+    else{
+        greeting.innerText=`Good evening, ${username}`;
+    }
     greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
