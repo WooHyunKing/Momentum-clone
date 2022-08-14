@@ -24,9 +24,45 @@ img{
     transform: translate(-50%,-50%);
 }
 
+#todo{
+    color:white;
+    text-align: center;
+    position: absolute;
+    top:70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#todo-form input[type=text]{
+    background-color: transparent;
+    border: 0;
+    font-size: 30px;
+    color: white;
+    width:410px;
+}
+
+#quote{
+    color:white;
+    text-align: center;
+    position: absolute;
+    top:90%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#weather{
+    color:white;
+    text-align: center;
+    position: absolute;
+    top:5%;
+    left: 95%;
+    transform: translate(-50%,-50%);
+}
+
 #center span {
     font-size: 30px;
 }
+
 #clock{
     margin:0;
     font-size: 100px;
@@ -49,5 +85,9 @@ img{
 }
 
 .login-form input::placeholder{
+    color:white;
+}
+
+#todo-form input::placeholder{
     color:white;
 }
